@@ -15,6 +15,12 @@ public class Lottos {
         List<Lotto> lottos = new ArrayList<>();
         int count = money / 1000;
 
+        makeLottos(factory, count, lottos);
+
+        return new Lottos(List.copyOf(lottos));
+    }
+
+    private static void makeLottos(LottoFactory factory, int count, List<Lotto> lottos) {
         try {
             for (int i = 0; i < count; i++) {
                 Lotto lotto = factory.lotto();
@@ -23,7 +29,6 @@ public class Lottos {
         } catch (IllegalStateException e) {
             OutputView.error(e);
         }
-        return new Lottos(List.copyOf(lottos));
     }
 
     public List<Lotto> getLottos() {
