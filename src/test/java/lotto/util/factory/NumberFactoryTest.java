@@ -1,15 +1,26 @@
 package lotto.util.factory;
 
 import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
+import java.io.PrintStream;
 import java.util.Scanner;
 import camp.nextstep.edu.missionutils.Console;
+import lotto.util.validator.ErrorMessage;
+import lotto.view.OutputView;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 class NumberFactoryTest {
     NumberFactory numberFactory = new NumberFactory();
+    ByteArrayOutputStream output = new ByteArrayOutputStream();
+
+    @BeforeEach
+    void beforeEach() {
+        System.setOut(new PrintStream(output));
+    }
 
     @AfterEach
     void afterEach() {
@@ -27,6 +38,7 @@ class NumberFactoryTest {
 
         // when
         Assertions.assertThat(money).isEqualTo(1000);
+        Assertions.assertThat(output.toString()).contains(ErrorMessage.WHITESPACE_STRING);
     }
 
     @Test
@@ -40,6 +52,7 @@ class NumberFactoryTest {
 
         // when
         Assertions.assertThat(money).isEqualTo(1000);
+        Assertions.assertThat(output.toString()).contains(ErrorMessage.ONLY_NUMBER);
     }
 
     @Test
@@ -53,6 +66,7 @@ class NumberFactoryTest {
 
         // when
         Assertions.assertThat(money).isEqualTo(1000);
+        Assertions.assertThat(output.toString()).contains(ErrorMessage.ONLY_POSITIVE_NUMBER);
     }
   
 }
