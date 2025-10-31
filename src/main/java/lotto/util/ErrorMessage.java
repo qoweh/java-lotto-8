@@ -1,4 +1,4 @@
-package lotto.util.validator;
+package lotto.util;
 
 public class ErrorMessage {
     public static final String FORMAT = "[ERROR] ";

@@ -2,12 +2,9 @@ package lotto.util.factory;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
-import java.io.InputStream;
 import java.io.PrintStream;
-import java.util.Scanner;
 import camp.nextstep.edu.missionutils.Console;
-import lotto.util.validator.ErrorMessage;
-import lotto.view.OutputView;
+import lotto.util.ErrorMessage;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;

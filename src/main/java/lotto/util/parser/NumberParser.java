@@ -1,25 +1,17 @@
 package lotto.util.parser;
 
-import lotto.util.validator.ErrorMessage;
-import net.bytebuddy.jar.asm.TypeReference;
+import lotto.util.validator.NumberValidator;
 
-public class NumberParser implements Parser{
-    @Override
-    public int intOf(String input) throws IllegalArgumentException {
-        int number = 0;
+public class NumberParser {
+    private final NumberValidator numberValidator;
 
-        try {
-            number = Integer.parseInt(input);
-        } catch (IllegalArgumentException e) {
-            System.out.println(e.getMessage());
-            number = intOf(input);
-        }
-        return number;
+    public NumberParser() {
+        this.numberValidator = new NumberValidator();
     }
 
-    private void validate(String input) {
-        if (input.isBlank()) {
-            throw new IllegalArgumentException(ErrorMessage.WHITESPACE_STRING);
-        }
+    public int intOf(String input) {
+        int number = Integer.parseInt(input);
+        numberValidator.validate(number);
+        return number;
     }
 }
