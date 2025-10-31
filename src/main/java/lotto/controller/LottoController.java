@@ -11,6 +11,7 @@ public class LottoController {
     }
 
     public void run() {
+        InputView.money();
         int money = numberFactory.money();
     }
 }
