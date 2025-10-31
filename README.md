@@ -39,10 +39,14 @@
 
 
 ### 4. 중간 과정
-1. [입력] 구입 금액(inputMoney) 입력
+1. [입력] 구입 금액(money) 입력
+   1. 문자열(money) 입력
+   2. 문자열(money) 파싱 - 예외 발생 시 '문자열(money) 입력' 반복 
 2. [과정] 구입 금액만큼 로또(lottos) 생성
 3. [출력] 생성한 로또 내역 출력
 4. [입력] 당첨 번호(correctLotto <- correctNumbers) 입력
+   1. 당첨번호(coreectNumbers) 입력
+   2. 당첨번호(coreectNumbers) 파싱
 5. [입력] 보너스 번호(correctLotto <- correctBonusNumber) 입력
 6. [과정] 등수(LottosResult <- rank)와 수익률(LottosResult <- rate) 계산
 7. [출력] 당첨 통계, 총 수익률 출력
