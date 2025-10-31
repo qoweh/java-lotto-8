@@ -7,10 +7,11 @@ import lotto.view.OutputView;
 
 public class NumberFactory {
     private static final String REGEXP_PATTERN_NUMBER = "^-?[\\d]*$";
+    private static final int ONE_LOTTO_PRICE  = 1000;
     private final NumberParser numberParser;
 
     public NumberFactory() {
-        this.numberParser = new NumberParser();
+        this.numberParser = new NumberParser(ONE_LOTTO_PRICE);
     }
 
     public int money() {

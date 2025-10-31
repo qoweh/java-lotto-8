@@ -5,8 +5,8 @@ import lotto.util.validator.NumberValidator;
 public class NumberParser {
     private final NumberValidator numberValidator;
 
-    public NumberParser() {
-        this.numberValidator = new NumberValidator();
+    public NumberParser(int value) {
+        this.numberValidator = new NumberValidator(value);
     }
 
     public int intOf(String input) {

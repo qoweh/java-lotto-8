@@ -6,4 +6,5 @@ public class ErrorMessage {
     public static final String WHITESPACE_STRING = FORMAT + "빈 문자열입니다.";
     public static final String ONLY_NUMBER = FORMAT + "숫자만 입력받습니다.";
     public static final String ONLY_POSITIVE_NUMBER = FORMAT + "양수만 입력받습니다.";
+    public static final String INVALID_NUMBER_VALUE = FORMAT + "1000원 단위로 나눠져야 합니다";
 }
