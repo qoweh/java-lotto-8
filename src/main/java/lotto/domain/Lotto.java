@@ -25,7 +25,6 @@ public class Lotto {
                 throw new IllegalArgumentException(ErrorMessage.SAME_LOTTO_NUMBER);
             }
         }
-
     }
 
     private boolean isOutrange(int number) {

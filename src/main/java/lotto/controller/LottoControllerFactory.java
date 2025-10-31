@@ -1,13 +1,13 @@
 package lotto.controller;
 
+import lotto.util.factory.CorrectNumbersFactory;
 import lotto.util.factory.NumberFactory;
-import lotto.view.InputView;
-import lotto.view.OutputView;
 
 public class LottoControllerFactory {
     public LottoController lottoController() {
         NumberFactory numberFactory = new NumberFactory();
+        CorrectNumbersFactory correctNumbersFactory = new CorrectNumbersFactory();
 
-        return new LottoController(numberFactory);
+        return new LottoController(numberFactory, correctNumbersFactory);
     }
 }

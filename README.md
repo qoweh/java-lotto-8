@@ -18,8 +18,8 @@
 
 ## 1. 기능 요구 사항
 ### 1. 로또 발매기
-- 각 로또 발행 시, 중복되지 않는 6개 숫자(1~45) 뽑는다. {개수, 범위, 중복 체크} 
-- 당첨 번호 추첨 시, 중복되지 않는 숫자 6개와 보너스 번호 1개를 뽑는다. : {개수, 범위, 중복 체크} 
+- 각 로또 발행 시, 중복되지 않는 6개 숫자(1~45) 뽑는다. 
+- 당첨 번호 추첨 시, 중복되지 않는 숫자 6개와 보너스 번호 1개를 뽑는다. 
 - 당첨은 1~5등까지 있으며 등수별 당첨 기준과 금액은 서로 다르다. 
 - 로또 구입 금액 입력 시, 전부 로또로 구입 금액에 해당하는 만큼 발행한다.
 - 로또 1장의 가격은 1000원이다.
@@ -44,10 +44,10 @@
    2. 문자열(money) 파싱 - 예외 발생 시 '문자열(money) 입력' 반복 
 2. [과정] 구입 금액만큼 로또(lottos) 생성
 3. [출력] 생성한 로또 내역 출력
-4. [입력] 당첨 번호(correctLotto <- correctNumbers) 입력
-   1. 당첨번호(coreectNumbers) 입력
-   2. 당첨번호(coreectNumbers) 파싱
-5. [입력] 보너스 번호(correctLotto <- correctBonusNumber) 입력
+4. [입력] 당첨 번호(correctLotto <- correctLottoNumbers) 입력
+   1. 당첨번호(correctLottoNumbers) 입력
+   2. 당첨번호(correctLottoNumbers) 파싱
+5. [입력] 보너스 번호(correctLotto <- correctLottoBonusNumber) 입력
 6. [과정] 등수(LottosResult <- rank)와 수익률(LottosResult <- rate) 계산
 7. [출력] 당첨 통계, 총 수익률 출력
 

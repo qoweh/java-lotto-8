@@ -3,15 +3,15 @@ package lotto.util.parser;
 import lotto.util.validator.NumberValidator;
 
 public class NumberParser {
-    private final NumberValidator numberValidator;
+    private final NumberValidator validator;
 
-    public NumberParser(int value) {
-        this.numberValidator = new NumberValidator(value);
+    public NumberParser(NumberValidator validator) {
+        this.validator = validator;
     }
 
     public int intOf(String input) {
         int number = Integer.parseInt(input);
-        numberValidator.validate(number);
+        validator.validate(number);
         return number;
     }
 }
