@@ -2,6 +2,7 @@ package lotto.domain;
 
 import java.util.FormatFlagsConversionMismatchException;
 import java.util.List;
+import java.util.concurrent.Flow;
 import lotto.util.ErrorMessage;
 
 public class Lotto {
@@ -33,6 +34,10 @@ public class Lotto {
 
     private boolean isDuplicate(List<Integer> numbers, int index) {
         return numbers.get(index).equals(numbers.get(index - 1));
+    }
+
+    public List<Integer> getNumbers() {
+        return List.copyOf(numbers);
     }
 
 }

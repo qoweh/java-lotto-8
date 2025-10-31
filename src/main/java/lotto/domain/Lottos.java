@@ -5,7 +5,7 @@ import java.util.List;
 import lotto.view.OutputView;
 
 public class Lottos {
-    private List<Lotto> lottos;
+    private final List<Lotto> lottos;
 
     public Lottos(List<Lotto> lottos) {
         this.lottos = lottos;
@@ -33,5 +33,21 @@ public class Lottos {
 
     public List<Lotto> getLottos() {
         return lottos;
+    }
+
+    public int getLottosCount() {
+        return lottos.size();
+    }
+
+    public List<List<Integer>> getLottosNumbers() {
+        List<List<Integer>> lottosNumbers = new ArrayList<>();
+
+        lottos.forEach(
+                lotto -> {
+                    lottosNumbers.add(lotto.getNumbers());
+                }
+        );
+
+        return lottosNumbers;
     }
 }
