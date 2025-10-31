@@ -65,5 +65,19 @@ class NumberFactoryTest {
         Assertions.assertThat(money).isEqualTo(1000);
         Assertions.assertThat(output.toString()).contains(ErrorMessage.ONLY_POSITIVE_NUMBER);
     }
+
+    @Test
+    void 입력은_1000원_단위로_받기() {
+        // given
+        String input = "1200\n1000";
+        System.setIn(new ByteArrayInputStream(input.getBytes()));
+
+        // when
+        int money = numberFactory.money();
+
+        // when
+        Assertions.assertThat(money).isEqualTo(1000);
+        Assertions.assertThat(output.toString()).contains(ErrorMessage.INVALID_NUMBER_VALUE);
+    }
   
 }

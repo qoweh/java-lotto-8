@@ -1,5 +1,7 @@
 package lotto.controller;
 
+import lotto.domain.LottoFactory;
+import lotto.domain.Lottos;
 import lotto.util.factory.NumberFactory;
 import lotto.view.InputView;
 
@@ -13,5 +15,10 @@ public class LottoController {
     public void run() {
         InputView.money();
         int money = numberFactory.money();
+
+        LottoFactory factory = new LottoFactory();
+        Lottos lottos = Lottos.of(money, factory);
+
+
     }
 }

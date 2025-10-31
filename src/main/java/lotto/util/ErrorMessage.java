@@ -7,4 +7,6 @@ public class ErrorMessage {
     public static final String ONLY_NUMBER = FORMAT + "숫자만 입력받습니다.";
     public static final String ONLY_POSITIVE_NUMBER = FORMAT + "양수만 입력받습니다.";
     public static final String INVALID_NUMBER_VALUE = FORMAT + "1000원 단위로 나눠져야 합니다";
+    public static final String INVALID_LOTTO_NUMBER = FORMAT + "생성된 로또 번호가 범위를 넘었습니다.";
+    public static final String SAME_LOTTO_NUMBER = FORMAT + "생성된 로도 번호 중 중복된 번호가 존재합니다.";
 }
