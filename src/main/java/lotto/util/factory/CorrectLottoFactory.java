@@ -25,7 +25,7 @@ public class CorrectLottoFactory {
         validateStringType(input);
     }
 
-    private static void validateNotBlank(String input) {
+    private void validateNotBlank(String input) {
         if (input.isBlank()) {
             throw new IllegalArgumentException(ErrorMessage.WHITESPACE_STRING);
         }

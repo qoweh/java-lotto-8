@@ -68,7 +68,7 @@ class CorrectLottoBonusNumberFactoryTest {
 
     @ParameterizedTest
     @ValueSource(strings = {"0", "120"})
-    void 적절하지_않은_값_입력받기(String input) {
+    void 범위를_벗어나는_값_입력받기(String input) {
         // given
         System.setIn(new ByteArrayInputStream(input.getBytes()));
 
@@ -96,7 +96,7 @@ class CorrectLottoBonusNumberFactoryTest {
 
         // then
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessage(ErrorMessage.INVALID_FORMAT);
+                .hasMessage(ErrorMessage.ONLY_NUMBER);
     }
 
     @ParameterizedTest

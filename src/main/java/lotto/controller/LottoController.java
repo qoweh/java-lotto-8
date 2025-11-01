@@ -5,37 +5,31 @@ import lotto.domain.Lotto;
 import lotto.domain.LottoFactory;
 import lotto.domain.Lottos;
 import lotto.domain.LottosFactory;
+import lotto.util.factory.CorrectLottoBonusNumberFactory;
 import lotto.util.factory.CorrectLottoFactory;
 import lotto.util.factory.NumberFactory;
 import lotto.view.InputView;
 import lotto.view.OutputView;
 
 public class LottoController {
-    private final NumberFactory numberFactory;
-    private final CorrectLottoFactory correctLottoFactory;
-
-    public LottoController(NumberFactory numbersFactory, CorrectLottoFactory correctLottoFactory) {
-        this.numberFactory = numbersFactory;
-        this.correctLottoFactory = correctLottoFactory;
-    }
-
     public void run() {
         int money = payMoney();
         Lottos lottos = purchaseLottos(money);
         printPurchaseLottos(lottos);
 
         Lotto correctLotto = makeCorrectLotto();
-        int correctLottoBonusNumber = makeCorrectLottoBonusNumber();
+        int correctLottoBonusNumber = makeCorrectLottoBonusNumber(correctLotto);
 
 
     }
 
     private int payMoney() {
+        NumberFactory factory = new NumberFactory();
         InputView.money();
 
         while (true) {
             try {
-                return numberFactory.money();
+                return factory.money();
             } catch (IllegalArgumentException e) {
                 OutputView.error(e);
             }
@@ -63,11 +57,12 @@ public class LottoController {
     }
 
     private Lotto makeCorrectLotto() {
+        CorrectLottoFactory factory = new CorrectLottoFactory();
         InputView.correctLottoNumbers();
 
         while (true) {
             try {
-                return correctLottoFactory.numbers();
+                return factory.numbers();
             } catch (IllegalArgumentException e) {
                 OutputView.error(e);
             }
@@ -84,6 +79,6 @@ public class LottoController {
             } catch (IllegalArgumentException e) {
                 OutputView.error(e);
             }
-            }
+        }
     }
 }
