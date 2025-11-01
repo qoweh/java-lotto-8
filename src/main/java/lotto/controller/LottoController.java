@@ -74,10 +74,16 @@ public class LottoController {
         }
     }
 
-    private int makeCorrectLottoBonusNumber() {
+    private int makeCorrectLottoBonusNumber(Lotto correctLotto) {
+        CorrectLottoBonusNumberFactory factory = new CorrectLottoBonusNumberFactory();
         InputView.correctLottoBonusNumber();
 
-        int correctLottoBonusNumber = 0;
-        return correctLottoBonusNumber;
+        while (true) {
+            try {
+                return factory.bonusNumber(correctLotto);
+            } catch (IllegalArgumentException e) {
+                OutputView.error(e);
+            }
+            }
     }
 }

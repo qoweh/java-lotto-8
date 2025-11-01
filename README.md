@@ -48,6 +48,8 @@
    1. 당첨번호(correctLottoNumbers) 입력
    2. 당첨번호(correctLottoNumbers) 파싱
 5. [입력] 보너스 번호(correctLotto <- correctLottoBonusNumber) 입력
+   1. 보너스 번호(correctLottoBonusNumber) 입력
+   2. 보너스 번호(correctLottoBonusNumber) 파싱
 6. [과정] 등수(LottosResult <- rank)와 수익률(LottosResult <- rate) 계산
 7. [출력] 당첨 통계, 총 수익률 출력
 
