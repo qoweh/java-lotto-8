@@ -9,7 +9,7 @@ public class LottoFactory {
     private static final int END = 45;
     private static final int COUNT = 6;
 
-    public Lotto lotto() {
+    public Lotto lotto() throws IllegalArgumentException {
         List<Integer> lottoNumbers = makeSortedNumbers();
         return new Lotto(List.copyOf(lottoNumbers));
     }

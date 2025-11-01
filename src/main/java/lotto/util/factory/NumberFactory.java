@@ -4,7 +4,6 @@ import camp.nextstep.edu.missionutils.Console;
 import lotto.util.ErrorMessage;
 import lotto.util.parser.NumberParser;
 import lotto.util.validator.NumberValidator;
-import lotto.view.OutputView;
 
 public class NumberFactory {
     private static final String REGEXP_PATTERN_NUMBER = "^-?[\\d]*$";
@@ -16,16 +15,10 @@ public class NumberFactory {
         this.parser = new NumberParser(validator);
     }
 
-    public int money() {
-        while (true) {
-            String input = Console.readLine();
-            try {
-                validate(input);
-                return parser.intOf(input);
-            } catch (IllegalArgumentException e) {
-                OutputView.error(e);
-            }
-        }
+    public int money() throws IllegalArgumentException{
+        String input = Console.readLine();
+        validate(input);
+        return parser.intOf(input);
     }
 
     private void validate(String input) {

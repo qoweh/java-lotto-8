@@ -5,27 +5,19 @@ import camp.nextstep.edu.missionutils.Console;
 import lotto.domain.Lotto;
 import lotto.util.ErrorMessage;
 import lotto.util.parser.CorrectNumbersParser;
-import lotto.view.OutputView;
 
-public class CorrectNumbersFactory {
+public class CorrectLottoFactory {
     private static final String REGEXP_PATTERN_STRING = "^(\\d+,)*\\d+$";
     private final CorrectNumbersParser parser;
 
-    public CorrectNumbersFactory() {
+    public CorrectLottoFactory() {
         this.parser = new CorrectNumbersParser();
     }
 
-    public Lotto numbers() {
-        while (true) {
-            String input = Console.readLine();
-            try {
-                validate(input);
-                List<Integer> integers = parser.collectionOf(input);
-                return new Lotto(integers);
-            } catch (IllegalArgumentException e) {
-                OutputView.error(e);
-            }
-        }
+    public Lotto numbers() throws IllegalArgumentException{
+        String input = Console.readLine();
+        validate(input);
+        return makeCorrectLotto(input);
     }
 
     private void validate(String input) {
@@ -43,5 +35,10 @@ public class CorrectNumbersFactory {
         if (!input.matches(REGEXP_PATTERN_STRING)) {
             throw new IllegalArgumentException(ErrorMessage.INVALID_FORMAT);
         }
+    }
+
+    private Lotto makeCorrectLotto(String input) {
+        List<Integer> integers = parser.collectionOf(input);
+        return new Lotto(integers);
     }
 }
