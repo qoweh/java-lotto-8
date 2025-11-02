@@ -10,8 +10,11 @@ public class NumberParser {
     }
 
     public int intOf(String input) {
+        validator.validate(input);
+
         int number = Integer.parseInt(input);
         validator.validate(number);
+
         return number;
     }
 }

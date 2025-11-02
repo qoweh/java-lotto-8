@@ -50,10 +50,10 @@ class CorrectLottoBonusNumberFactoryTest {
         Assertions.assertThat(bonusNumber).isEqualTo(12);
     }
 
-    @Test
-    void 음수_입력받기() {
+    @ParameterizedTest
+    @ValueSource(strings = {"-12", "0"})
+    void 음수_혹은_0_입력받기(String input) {
         // given
-        String input = "-10";
         System.setIn(new ByteArrayInputStream(input.getBytes()));
 
         // when
@@ -67,7 +67,7 @@ class CorrectLottoBonusNumberFactoryTest {
     }
 
     @ParameterizedTest
-    @ValueSource(strings = {"0", "120"})
+    @ValueSource(strings = {"47", "120"})
     void 범위를_벗어나는_값_입력받기(String input) {
         // given
         System.setIn(new ByteArrayInputStream(input.getBytes()));

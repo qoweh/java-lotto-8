@@ -4,9 +4,27 @@ import lotto.util.ErrorMessage;
 
 public class NumberValidator {
     private final int price;
+    private static final String REGEXP_PATTERN_NUMBER = "^-?\\d*$";
 
     public NumberValidator(int price) {
         this.price = price;
+    }
+
+    public void validate(String input) {
+        validateNotBlank(input);
+        validateNumberType(input);
+    }
+
+    private void validateNotBlank(String input) {
+        if (input.isBlank()) {
+            throw new IllegalArgumentException(ErrorMessage.WHITESPACE_STRING);
+        }
+    }
+
+    private void validateNumberType(String input) {
+        if (!input.matches(REGEXP_PATTERN_NUMBER)) {
+            throw new IllegalArgumentException(ErrorMessage.ONLY_NUMBER);
+        }
     }
 
     public void validate(int number) {
