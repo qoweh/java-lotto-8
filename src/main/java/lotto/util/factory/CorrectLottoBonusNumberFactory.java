@@ -13,6 +13,6 @@ public class CorrectLottoBonusNumberFactory {
 
     public int bonusNumber(Lotto correctLotto) throws IllegalArgumentException {
         String input = Console.readLine();
-        return parser.intOf(input);
+        return parser.intOf(input, correctLotto);
     }
 }

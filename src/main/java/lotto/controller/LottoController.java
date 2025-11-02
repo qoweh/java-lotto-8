@@ -19,7 +19,7 @@ public class LottoController {
 
         Lotto correctLotto = makeCorrectLotto();
         int correctLottoBonusNumber = makeCorrectLottoBonusNumber(correctLotto);
-
+        
 
     }
 
