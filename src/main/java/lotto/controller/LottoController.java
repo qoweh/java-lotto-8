@@ -1,10 +1,7 @@
 package lotto.controller;
 
 import java.util.List;
-import lotto.domain.Lotto;
-import lotto.domain.LottoFactory;
-import lotto.domain.Lottos;
-import lotto.domain.LottosFactory;
+import lotto.domain.*;
 import lotto.util.factory.CorrectLottoBonusNumberFactory;
 import lotto.util.factory.CorrectLottoFactory;
 import lotto.util.factory.NumberFactory;
@@ -19,7 +16,8 @@ public class LottoController {
 
         Lotto correctLotto = makeCorrectLotto();
         int correctLottoBonusNumber = makeCorrectLottoBonusNumber(correctLotto);
-        
+//        LottoResult 객체 필요
+        Result result = Result.of(lottos, correctLotto, correctLottoBonusNumber);
 
     }
 
