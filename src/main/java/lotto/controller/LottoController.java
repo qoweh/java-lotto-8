@@ -1,5 +1,6 @@
 package lotto.controller;
 
+import java.util.Arrays;
 import java.util.List;
 import lotto.domain.*;
 import lotto.util.factory.CorrectLottoBonusNumberFactory;
@@ -18,8 +19,7 @@ public class LottoController {
         int correctLottoBonusNumber = makeCorrectLottoBonusNumber(correctLotto);
         Result result = Result.of(lottos, correctLotto, correctLottoBonusNumber);
 
-
-
+        printResult(result);
     }
 
     private int payMoney() {
@@ -79,5 +79,25 @@ public class LottoController {
                 OutputView.error(e);
             }
         }
+    }
+
+    private void printResult(Result result) {
+        OutputView.resultNotify();
+        List<Rank> resultRanks = result.getRanks();
+        double resultRate = result.getRate();
+
+        List<Rank> existentAllRanks = Arrays
+                .stream(Rank.values())
+                .filter(rank -> rank != Rank.NONE)
+                .toList();
+
+        existentAllRanks.forEach(rank -> {
+            int targetCount = rank.getCount();
+            int prize = rank.getPrize();
+            int resultCount = Rank.countRank(resultRanks, rank);
+            OutputView.count(targetCount, prize, resultCount);
+        });
+
+        OutputView.rate(resultRate);
     }
 }
