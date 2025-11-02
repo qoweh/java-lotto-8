@@ -30,7 +30,8 @@ public class Result {
                 .map(lotto -> {
                     List<Integer> lottoNumbers = lotto.getNumbers();
 
-                    long count = lottoNumbers.stream()
+                    long count = lottoNumbers
+                            .stream()
                             .filter(correctNumbers::contains)
                             .count();
 
