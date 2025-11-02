@@ -51,9 +51,11 @@
    1. 보너스 번호(correctLottoBonusNumber) 입력
    2. 보너스 번호(correctLottoBonusNumber) 파싱
 6. [과정] 등수(LottosResult <- rank)와 수익률(LottosResult <- rate) 계산
+   1. 구매 로또와 당첨 로또 비교하여 결과 구하기
+   2. LottoResult 객체 생성하기
 7. [출력] 당첨 통계, 총 수익률 출력
 
-> #### 예외
+> #### 입력값에 대한 예외 처리
 > - 구입 금액 : 유효한 문자열, 숫자 문자열, 유효한 숫자
 > - 당첨 번호 : 유효한 문자열, 공백없는 구분자로 된 유효한 문자열, 유효한 숫자, 숫자 개수
 > - 보너스 번호 : 유효한 문자열, 숫자 문자열, 유효한 숫자, 당첨 번호와의 중복
@@ -61,9 +63,11 @@
 ---
 ## 2. 설계
 - View : InputView, OutputView
-- Validator : 
 - Controller : LottoController, LottoControllerFactory
 - Domain : Lotto, Lottos, LottosResult
+- Factory : NumberFactory, CorrectLottoFactory, CorrectLottoBonusNumberFactory
+- Validator : NumberValidator, CorrectNumbersValidator, CorrectLottoBonusNumberValidator
+- Parser : NumberParser, CorrectNumbersParser, CorrectLottoBonusNumberValidator
 
 
 ---
