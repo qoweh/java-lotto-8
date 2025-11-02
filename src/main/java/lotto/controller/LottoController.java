@@ -16,8 +16,9 @@ public class LottoController {
 
         Lotto correctLotto = makeCorrectLotto();
         int correctLottoBonusNumber = makeCorrectLottoBonusNumber(correctLotto);
-//        LottoResult 객체 필요
         Result result = Result.of(lottos, correctLotto, correctLottoBonusNumber);
+
+
 
     }
 

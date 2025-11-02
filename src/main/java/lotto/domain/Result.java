@@ -14,12 +14,40 @@ public class Result {
     public static Result of(
             Lottos purchaseLottos,
             Lotto correctLotto,
-            int correctLottoBonusNumber) {
-        // rank : 몇 등인지
-        // rate : 등수에 해당하는 금액 / lottos의 개수 * 1000원
+            int bonusNumber) {
+        List<Lotto> lottos = purchaseLottos.getLottos();
+        List<Integer> correctLottoNumbers = correctLotto.getNumbers();
 
+        List<Rank> ranks = makeRanks(lottos, correctLottoNumbers, bonusNumber);
+        double rate = makeRate(lottos.size(), ranks);
 
-        return new Result(null, 0);
+        return new Result(ranks, rate);
+    }
+
+    private static List<Rank> makeRanks(List<Lotto> lottos, List<Integer> correctNumbers, int bonusNumber) {
+        return lottos
+                .stream()
+                .map(lotto -> {
+                    List<Integer> lottoNumbers = lotto.getNumbers();
+
+                    long count = lottoNumbers.stream()
+                            .filter(correctNumbers::contains)
+                            .count();
+
+                    boolean isBonus = lottoNumbers.contains(bonusNumber);
+
+                    return Rank.valueOf(count, isBonus);})
+                .toList();
+    }
+
+    private static double makeRate(int size, List<Rank> ranks) {
+        int purchasedMoney = size * Lotto.ONE_LOTTO_PRICE;
+        int lottoPrice = ranks
+                .stream()
+                .map(Rank::getPrize)
+                .mapToInt(Integer::intValue)
+                .sum();
+        return (double) lottoPrice / purchasedMoney * 100;
     }
 
     public List<Rank> getRanks() {
