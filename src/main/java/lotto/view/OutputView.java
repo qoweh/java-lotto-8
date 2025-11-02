@@ -13,7 +13,7 @@ public class OutputView {
     private static final String RESULT_RATE_MESSAGE_PREFIX = "총 수익률은 ";
     private static final String RESULT_RATE_MESSAGE_SUFFIX = "%입니다.";
     private static final NumberFormat NUMBER_FORMAT = NumberFormat.getInstance();
-    private static boolean second = false;
+    private static int previousTargetCount;
 
     public static void error(Exception e) {
         System.out.println(e.getMessage());
@@ -30,9 +30,8 @@ public class OutputView {
 
     public static void count(int targetCount, int prize, int resultCount) {
         String targetCountMessage = RESULT_COUNT_MESSAGE_PREFIX;
-        if (targetCount == 5 && second) {
+        if (targetCount == previousTargetCount) {
             targetCountMessage = "개 일치, 보너스 볼 일치 (";
-            second = false;
         }
 
         System.out.println(
@@ -40,9 +39,7 @@ public class OutputView {
                 + NUMBER_FORMAT.format(prize) + RESULT_COUNT_MESSAGE_MIDDLE
                 + resultCount + RESULT_COUNT_MESSAGE_SUFFIX);
 
-        if (targetCount == 5) {
-            second = true;
-        }
+        previousTargetCount = targetCount;
     }
 
     public static void rate(double rate) {
