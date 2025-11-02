@@ -1,11 +1,10 @@
 package lotto.domain;
 
-import java.util.FormatFlagsConversionMismatchException;
 import java.util.List;
-import java.util.concurrent.Flow;
 import lotto.util.ErrorMessage;
 
 public class Lotto {
+    public static final int ONE_LOTTO_PRICE  = 1000;
     private final List<Integer> numbers;
 
     public Lotto(List<Integer> numbers) throws IllegalArgumentException {
