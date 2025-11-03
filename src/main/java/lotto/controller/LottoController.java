@@ -2,15 +2,16 @@ package lotto.controller;
 
 import java.util.Arrays;
 import java.util.List;
+import camp.nextstep.edu.missionutils.Console;
 import lotto.domain.Lotto;
-import lotto.domain.LottoFactory;
+import lotto.factory.LottoFactory;
 import lotto.domain.Lottos;
-import lotto.domain.LottosFactory;
+import lotto.factory.LottosFactory;
 import lotto.domain.Rank;
 import lotto.domain.Result;
-import lotto.util.factory.CorrectLottoBonusNumberFactory;
-import lotto.util.factory.CorrectLottoFactory;
-import lotto.util.factory.NumberFactory;
+import lotto.factory.CorrectLottoBonusNumberFactory;
+import lotto.factory.CorrectLottoFactory;
+import lotto.factory.NumberFactory;
 import lotto.view.InputView;
 import lotto.view.OutputView;
 
@@ -44,9 +45,7 @@ public class LottoController {
         while (true) {
             try {
                 LottoFactory lottoFactory = new LottoFactory();
-                LottosFactory lottosFactory = new LottosFactory();
-
-                return lottosFactory.of(money, lottoFactory);
+                return LottosFactory.of(money, lottoFactory);
             } catch (IllegalArgumentException e) {
                 OutputView.error(e);
             }
@@ -104,5 +103,6 @@ public class LottoController {
         });
 
         OutputView.rate(resultRate);
+        Console.close();
     }
 }
