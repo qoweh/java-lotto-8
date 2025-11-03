@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 import camp.nextstep.edu.missionutils.Console;
 import lotto.domain.Lotto;
+import lotto.factory.CorrectLottoFactory;
 import lotto.util.ErrorMessage;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.AfterEach;

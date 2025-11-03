@@ -1,4 +1,4 @@
-package lotto.util.factory;
+package lotto.factory;
 
 import java.util.List;
 import camp.nextstep.edu.missionutils.Console;
@@ -21,6 +21,6 @@ public class CorrectLottoFactory {
 
     private Lotto makeCorrectLotto(String input) throws IllegalArgumentException {
         List<Integer> integers = parser.collectionOf(input);
-        return new Lotto(integers);
+        return new Lotto(List.copyOf(integers));
     }
 }

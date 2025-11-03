@@ -4,6 +4,7 @@ import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 import camp.nextstep.edu.missionutils.Console;
+import lotto.factory.NumberFactory;
 import lotto.util.ErrorMessage;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.AfterEach;
