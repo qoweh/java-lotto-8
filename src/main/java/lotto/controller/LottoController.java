@@ -2,7 +2,12 @@ package lotto.controller;
 
 import java.util.Arrays;
 import java.util.List;
-import lotto.domain.*;
+import lotto.domain.Lotto;
+import lotto.domain.LottoFactory;
+import lotto.domain.Lottos;
+import lotto.domain.LottosFactory;
+import lotto.domain.Rank;
+import lotto.domain.Result;
 import lotto.util.factory.CorrectLottoBonusNumberFactory;
 import lotto.util.factory.CorrectLottoFactory;
 import lotto.util.factory.NumberFactory;

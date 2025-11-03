@@ -16,11 +16,11 @@ public class Lotto {
         if (numbers.size() != 6) {
             throw new IllegalArgumentException(ErrorMessage.NEED_6_NUMBERS);
         }
-        for (int i = 0; i < numbers.size(); i++) {
-            if (isOutrange(numbers.get(i))) {
+        for (int index = 0; index < numbers.size(); index++) {
+            if (isOutrange(numbers.get(index))) {
                 throw new IllegalArgumentException(ErrorMessage.INVALID_LOTTO_NUMBER);
             }
-            if (i >= 1 && isDuplicate(numbers, i)) {
+            if (index >= 1 && isDuplicate(numbers, index)) {
                 throw new IllegalArgumentException(ErrorMessage.SAME_LOTTO_NUMBER);
             }
         }
